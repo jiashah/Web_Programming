@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1880</title>
+</head>
+
+
+<body>
+
+
+    <h2>Addition using sliders</h2>
+
+
+    <form>
+        <div class="slider-container">
+            <label for="slider1">Slider1:</label>
+            <input type="range" id="slider1" min="0" max="100" value="50" oninput="calculateTotal()">
+            <output id="output1">50</output>
+        </div>
+        <br>
+        <div>
+            <label for="slider2">Slider2:</label>
+            <input type="range" id="slider2" min="0" max="100" value="50" oninput="calculateTotal()">
+            <output id="output2">50</output>
+        </div>
+        <br>
+        <div>
+            <label for="slider3">Slider3:</label>
+            <input type="range" id="slider3" min="0" max="100" value="50" oninput="calculateTotal()">
+            <output id="output3">50</output>
+        </div>
+        <br>
+        <p>Total output: <output id="totalScore">150</output></p>
+    </form>
+
+
+    <script>
+        function calculateTotal() {
+            const slider1 = document.getElementById('slider1');
+            const slider2 = document.getElementById('slider2');
+            const slider3 = document.getElementById('slider3');
+
+
+            const output1 = document.getElementById('output1');
+            const output2 = document.getElementById('output2');
+            const output3 = document.getElementById('output3');
+            const totalScore = document.getElementById('totalScore');
+
+
+            // Update individual outputs
+            output1.value = slider1.value;
+            output2.value = slider2.value;
+            output3.value = slider3.value;
+
+
+            // Calculate total and update total score
+            const total = parseInt(slider1.value) + parseInt(slider2.value) + parseInt(slider3.value);
+            totalScore.value = total;
+        }
+
+
+        // Initialize total value on page load
+        calculateTotal();
+    </script>
+
+
+</body>
+
+
+</html>
