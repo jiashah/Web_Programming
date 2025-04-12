@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1880</title>
+</head>
+<body>
+    <h2>TICKET BOOTH</h2>
+    <form onsubmit="return MyFunc(event)"> //on submit th page reloads so to stop that we pass event
+        <td>Adults (&#8377; 10 each)</td>
+        <br><input type="text" id="adult" required>
+        <br>
+        <td>Children (&#8377; 5 each)</td>
+        <br>
+        <input type="text" id="child" required>
+        <br><br>
+        <button type="submit" name="total">Total</button>
+        <p id="ans"></p>
+    </form>
+
+
+    <script>
+        function MyFunc(event) {
+            event.preventDefault(); //to stop the page from reloading
+             var a = parseInt(document.getElementById("adult").value);
+            var b = parseInt(document.getElementById("child").value);
+
+
+            var total = (a * 10) + (b * 5);
+
+
+            document.getElementById("ans").innerHTML = "Total: &#8377; " + total;
+        }
+    </script>
+</body>
+</html>
+
+
+

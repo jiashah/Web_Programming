@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1880</title>
+</head>
+<body>
+    <script>
+        const textbox = document.createElement('input');
+        textbox.type = 'text';
+        textbox.style.padding = '10px';
+        textbox.style.borderRadius = '5px';
+        textbox.style.backgroundColor = 'green';
+
+
+        const button = document.createElement('button');
+        button.textContent = 'Click Me';
+        button.style.backgroundColor = 'blue';
+        button.style.color = 'white';
+        button.style.padding = '10px 20px';
+        button.style.border = 'none';
+        button.style.borderRadius = '5px';
+        button.style.cursor = 'pointer';
+
+
+        // Add event listener for textbox focus
+        textbox.addEventListener('focus', function() {
+            textbox.style.backgroundColor = 'yellow';
+        });
+
+
+        // Add event listener for textbox change
+        textbox.addEventListener('change', function() {
+            alert('Greeting: ' + textbox.value);
+        });
+
+
+        // Append textbox first, then button to ensure textbox is above the button
+        document.body.appendChild(textbox);
+        document.body.appendChild(button);
+    </script>
+</body>
+</html>

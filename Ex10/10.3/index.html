@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <title>23BCE1880</title>
+    <style>
+        .container {
+            width: 40%;
+            margin: auto;
+            background: #7a8365;
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+        }
+
+
+        .product {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+
+        .submit-btn {
+            background-color: #b68d54;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+
+<body>
+
+
+    <div class="container">
+        <h2>Grocery Order Form</h2>
+        <form id="orderForm">
+            <label>Customer Name:</label>
+            <input type="text" id="name" required> <br><br>
+
+
+            <label>Phone Number:</label>
+            <input type="text" id="phone" required> <br><br>
+
+
+            <label>Email:</label>
+            <input type="email" id="email" required> <br><br>
+
+
+            <h3>Products</h3>
+
+
+            <div class="product">
+                <img src="apple.png" style="width: 10%; border-radius: 50%;">
+                <input type="checkbox" id="appleCheck">
+                <label>Apple - $10</label>
+                <input type="number" id="appleQty" min="0" placeholder="kg">
+            </div>
+
+
+            <div class="product">
+                <img src="banana.png" style="width: 10%; border-radius: 50%;">
+                <input type="checkbox" id="bananaCheck">
+                <label>Banana - $5</label>
+                <input type="number" id="bananaQty" min="0" placeholder="kg">
+            </div>
+
+
+            <div class="product">
+                <img src="avacado.png" style="width: 10%; border-radius: 50%;">
+                <input type="checkbox" id="avocadoCheck">
+                <label>Avocado - $7</label>
+                <input type="number" id="avocadoQty" min="0" placeholder="kg">
+            </div>
+
+
+            <br>
+            <center>
+                <button type="button" class="submit-btn" onclick="submitOrder()">SUBMIT</button>
+            </center>
+        </form>
+    </div>
+
+
+    <script>
+        function submitOrder() {
+            let name = document.getElementById("name").value;
+            let phone = document.getElementById("phone").value;
+            let email = document.getElementById("email").value;
+
+
+            let order = [];
+
+
+            if (document.getElementById("appleCheck").checked) {
+                let qty = document.getElementById("appleQty").value;
+                order.push({ product: "Apple", price: 10, quantity: qty });
+            }
+            if (document.getElementById("bananaCheck").checked) {
+                let qty = document.getElementById("bananaQty").value;
+                order.push({ product: "Banana", price: 5, quantity: qty });
+            }
+            if (document.getElementById("avocadoCheck").checked) {
+                let qty = document.getElementById("avocadoQty").value;
+                order.push({ product: "Avocado", price: 7, quantity: qty });
+            }
+
+
+            let orderData = {
+                name: name,
+                phone: phone,
+                email: email,
+                order: order
+            };
+
+
+            localStorage.setItem("orderData", JSON.stringify(orderData));
+            window.location.href = "reciept.html";
+        }
+    </script>
+
+
+</body>
+
+
+</html>

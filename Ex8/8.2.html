@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1880</title>
+</head>
+<body>
+    <h3>Click to check if you are eligible to drive</h3>
+    <button onclick="myFunction()">Click Me!</button>
+    <script>
+        function myFunction(){
+            let person=prompt("Enter your age:","18");
+            if(person==null || person==""){
+                alert("Error! Enter a value");
+            }else{
+                if(person>=18){
+                    alert("Eligible to drive!");
+                }else{
+                    alert("Not eligible to drive");
+                }
+            }
+        }
+    </script>
+</body>

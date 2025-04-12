@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <style>
+        td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+
+
+        }
+    </style>
+</head>
+
+
+<body>
+    <table style="width: 30%;">
+        <form id="bmiForm" onsubmit="myFun(event)">
+            <tr>
+                <td td colspan="2">BMI Calculator
+                    <select name="gender" id="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td td colspan="2">Enter your weight:<br> (in pounds)
+                    <input type="text" id="weight" required>
+                </td>
+            </tr>
+            <tr>
+                <td td colspan="2">Enter your height: <br> (feet)
+                    <input type="text" id="heightFeet" required>
+                    <br> (inches)
+                    <input type="text" id="heightInches" required>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit">Calculate</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Your BMI:</td>
+                <td><input type="text" id="bmiResult" readonly></td>
+            </tr>
+        </form>
+    </table>
+
+
+    <script>
+        function myFun(event) {
+            event.preventDefault();
+            const g = document.getElementById('gender').value;
+            const weight = parseFloat(document.getElementById('weight').value);
+            const heightFeet = parseFloat(document.getElementById('heightFeet').value);
+            const heightInches = parseFloat(document.getElementById('heightInches').value);
+
+
+            const totalInches = (heightFeet * 12) + heightInches;
+            const heightInMeters = totalInches * 0.0254;
+
+
+            const bmi = (weight / (heightInMeters * heightInMeters));
+            let message = '';
+            if (g == 'female') {
+                if (bmi < 17.50) {
+                    message = 'Anorexia';
+                } else if (bmi >= 17.51 && bmi <= 19.10) {
+                    message = 'Underweight';
+                } else if (bmi >= 19.11 && bmi <= 25.80) {
+                    message = 'Ideal Range';
+                } else if (bmi >= 25.81 && bmi <= 27.30) {
+                    message = 'Marginally overweight range';
+                } else if (bmi >= 27.31 && bmi <= 32.30) {
+                    message = 'Owerweight range';
+                } else if (bmi >= 32.20) {
+                    message = 'Very owerweight or Obese range';
+                }
+            } else {
+                if (bmi < 17.50) {
+                    message = 'Anorexia';
+                } else if (bmi >= 17.501 && bmi <= 20.70) {
+                    message = 'Underweight';
+                } else if (bmi >= 20.71 && bmi <= 26.40) {
+                    message = 'Ideal Range';
+                } else if (bmi >= 26.41 && bmi <= 27.80) {
+                    message = 'Marginally overweight range';
+                } else if (bmi >= 27.81 && bmi <= 31.10) {
+                    message = 'Owerweight range';
+                } else if (bmi >= 31.10) {
+                    message = 'Very owerweight or Obese range';
+                }
+            }
+            document.getElementById('bmiResult').value = bmi.toFixed(2);
+            alert(message);
+        }
+    </script>
+</body>
+
+
+</html>

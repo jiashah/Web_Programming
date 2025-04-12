@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1880</title>
+    <style>
+        button {
+            background-color: red;
+            color: white;
+            padding: 20px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+
+    </style>
+</head>
+
+
+<body>
+    <button id="mybutton">Hover me</button>
+
+
+    <script>
+        let b=document.getElementById("mybutton");
+
+
+        b.addEventListener("mouseover",function(){
+            b.style.background="green";
+        });
+        b.addEventListener("mouseout",function(){
+            b.style.background="red";
+        })
+    </script>
+</body>
+</html>

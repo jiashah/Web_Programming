@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1880</title>
+</head>
+<body>
+    <p id="hot"></p>
+    <br>
+    <p id="plea"></p>
+    <br>
+    <p id="cold"></p>
+    <br>
+    <table border="1px solid black" style="border-collapse: collapse;">
+        <tr>
+            <th>Temprature</th>
+            <th>Category</th>
+        </tr>
+        <tbody id="temptable"></tbody>
+    </table>
+
+
+    <script>
+        const temps= [55,62,68,74,59,45,41,58,69,67,65,78,82,88,91,92,90,93,87,80,78,79,72,68,61,59,55,65];
+        var counth=0, countp=0, countc=0;
+        temps.forEach(myFun);
+        document.getElementById("hot").innerHTML="Total HOT Days: "+counth;
+        document.getElementById("plea").innerHTML="Total PLEASANT days: "+countp;
+        document.getElementById("cold").innerHTML="Total COLD Days: "+countc;
+
+
+        function myFun(value){
+            let category='';
+
+
+            if(value<60){
+                category='Cold';
+                countc++;
+            }else if(value>=60 && value<=84){
+                category='Pleasant';
+                countp++;
+            }else if(value>=85){
+                category='Hot';
+                counth++;
+            }
+
+
+            document.getElementById("temptable").innerHTML+= `<tr><td>${value}</td><td>${category}</td></tr>`;
+        }
+
+
+    </script>
+</body>
+</html>
+
+
